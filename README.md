@@ -2,9 +2,7 @@
 **Group 11: Elizabeth Williams, Soha Sultana, and Brittney Oeur**
 
 ## Story Pitch:
-*Your project proposal will include a "story pitch" or "elevator pitch" where you will briefly describe (~500 words) A) what is the story you intend to tell/visualize and B) why that is an interesting and compelling story. Your pitch should make a clear argument about why someone would care about your story and why they might find it interesting.*
-
-The story our group intends to tell is about the relationship between tobacco use, employment status and/or education level, and mental health. Such as how the use of tobacco/smoking, the status of someone’s employment, and education level may have an impact on their mental health.
+The story our group intends to tell is about the relationship between tobacco use, employment status and/or education level, and mental health. Such as how the use of tobacco/smoking, the status of someone’s employment and/or education level may have an impact on their mental health.
 
 We believe this an interesting and compelling story because it touches on a topic that affects a large portion of the population. In recent years, the awareness of mental health has risen tremendously, and advocating for people to seek professional help has been more accepted by mainstream culture. In addition, smoking is a widespread habit that affects the lives of millions of people, and its impact on mental health is often overlooked. By exploring this topic, we can shed light on the issues. Moreover, the impact of employment status and/or education level on smoking and mental health can highlight the larger issue of socioeconomic inequality. Within the context of the ongoing pandemic, the relationship between smoking and mental health has become even more pertinent. Stress and anxiety levels have been on the rise, which has led people to turn to smoking as a coping mechanism. This can then lead to an increased need for mental health support, especially for those in lower socioeconomic brackets who may have more limited resources.
 
@@ -13,9 +11,7 @@ Some of the data we plan to look at includes causes of smoking in young adults, 
 Overall, this story is relevant and timely, given the pandemic and the extensive impact it has had on mental health. It is also a topic that affects a large portion of the population and is therefore of interest to many communities. By exploring the relationship between smoking, employment status, education level, and mental health, we can better understand the complex interplay between these factors.
 
 ## Finding Data:
-*Your final project will require you to work with two independent datasets that come from two independent sources.*
-
-**1) Behavioral Risk Factor Data: Tobacco Use (2011 to present)**
+### 1) Behavioral Risk Factor Data: Tobacco Use (2011 to present)
 - Where did you download the data (e.g., a web URL)?
   - https://catalog.data.gov/dataset/behavioral-risk-factor-data-tobacco-use-2011-to-present
 - How was the data collected or generated? 
@@ -25,7 +21,7 @@ Overall, this story is relevant and timely, given the pandemic and the extensive
 - How many features (columns) are in the data?
   - 43342 Columns
 
-**2) Behavioral Health Services Provided to the Medicaid and CHIP Population**
+### 2) Behavioral Health Services Provided to the Medicaid and CHIP Population
 - Where did you download the data (e.g., a web URL)?
   - https://catalog.data.gov/dataset/behavioral-health-servicesprovided-to-the-medicaid-and-chip-population-b6f90
 - How was the data collected or generated? 
@@ -36,10 +32,6 @@ Overall, this story is relevant and timely, given the pandemic and the extensive
   - 25441 Columns
 
 ## Background Research/Inspiration
-*Finally, your proposal should include sources of inspiration/background research that you've found on the web. These can be new articles, blog posts, or even interactive visualizations. In your proposal please include the following:*
-- *List no fewer than 5 URLs of articles and other web applications that share common goals and/or features with your proposed project idea.*
-- *And for each of the 5 listed inspirations from above, write at least two bullet point items comparing and contrasting your project idea with the given inspiration.*
-
 **1) Do people with mental illness and substance use disorders use tobacco more often? | National Institute on Drug Abuse (NIDA) (nih.gov)**
 - “Rates of smoking among people with mental illness were highest for young adults, those with low levels of education, and those living below the poverty level”. 
 - According to the 2022 Monitoring the Future Survey, 4% of 12th graders, 1.7% of 10th graders, and 0.8% of 8th graders used cigarettes in the past month.12 An analysis of the 2022 National Youth Tobacco Survey (NYTS) found that 11.3% of middle and high school students reported using a tobacco product in the last 30 days, with higher rates among young people experiencing high levels of psychological distress. Young people whose guardians earned lower wages and young people from marginalized communities, such as lesbian, gay and bisexual young people and transgender young people, reported higher smoking rates
