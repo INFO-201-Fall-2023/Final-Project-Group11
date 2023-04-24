@@ -1,4 +1,4 @@
-# Final Project - Project Proposal (INFO 20 A)
+# Final Project - Project Proposal (INFO 201 A)
 **Group 11: Elizabeth Williams, Soha Sultana, and Brittney Oeur**
 
 ## Story Pitch:
