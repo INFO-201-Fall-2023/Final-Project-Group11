@@ -32,31 +32,31 @@ Overall, this story is relevant and timely, given the pandemic and the extensive
   - 25441 Columns
 
 ## Background Research/Inspiration
-**1) Do people with mental illness and substance use disorders use tobacco more often? | National Institute on Drug Abuse (NIDA) (nih.gov)**
+**1) [Do people with mental illness and substance use disorders use tobacco more often?](https://nida.nih.gov/publications/research-reports/tobacco-nicotine-e-cigarettes/do-people-mental-illness-substance-use-disorders-use-tobacco-more-often#:~:text=Rates%20of%20smoking%20among%20people%20with%20mental%20illness,for%20non-Hispanic%20American%20Indian%20or%20Alaska%20Native%20adults.)**
 - “Rates of smoking among people with mental illness were highest for young adults, those with low levels of education, and those living below the poverty level”. 
 - According to the 2022 Monitoring the Future Survey, 4% of 12th graders, 1.7% of 10th graders, and 0.8% of 8th graders used cigarettes in the past month.12 An analysis of the 2022 National Youth Tobacco Survey (NYTS) found that 11.3% of middle and high school students reported using a tobacco product in the last 30 days, with higher rates among young people experiencing high levels of psychological distress. Young people whose guardians earned lower wages and young people from marginalized communities, such as lesbian, gay and bisexual young people and transgender young people, reported higher smoking rates
 
-**2) Youth and Tobacco Use | Smoking and Tobacco Use | CDC**
+**2) [Youth and Tobacco Use](https://www.cdc.gov/tobacco/data_statistics/fact_sheets/youth_data/tobacco_use/index.htm)**
 - Youth tobacco use is the best indicator of how smoking behavior is likely to go in the future and how it is likely to impact future generations
 - Data from both middle and high school students
 - We likely will include how new smoking technology changed patterns that suggested smoking and nicotine use was on a downward trend
 
-**3) https://mhanational.org/issues/2022/mental-health-america-access-care-data**
+**3) [Access to Care Data 2022](https://mhanational.org/issues/2022/mental-health-america-access-care-data)**
 - This website shows a ranking of the availability of mental health care across the states 
 - The data itself includes 9 measures that represent; the measures for youth include: Youth with MDE who did not Receive mental health services and Youth with Severe MDE who received Some Consistent Treatment
 - We can use this data to get an idea of how different states play into the issue of mental health and tobacco use, and how they are combating it. This is helpful for comparisons and trends across states and getting an idea on what are the most practical and beneficial ways for mental health care 
 
-**4) https://mhanational.org/issues/state-mental-health-america**
+**4) [The State Of Mental Health In America](https://mhanational.org/issues/state-mental-health-america)**
 - Ranks states’ mental health education and treatment availability for various groups of people (ie kids, uninsured adults, disabled adults, etc)
 - The website is a good example of how to organize large volume of data; it emphasizes topics of interest for our group project
 - This is more along the lines of inspiration for interactive visualization of geographic data and trends
 
-**5) https://www.ajpmonline.org/article/S0749-3797(22)00450-0/fulltext#:~:text=For%20instance%2C%20in%202018%2C%20current,with%20an%20undergraduate%20college%20degree.**
+**5) [Smoking Disparities by Level of Educational Attainment and Birth Cohort in the U.S.](https://www.ajpmonline.org/article/S0749-3797(22)00450-0/fulltext#:~:text=For%20instance%2C%20in%202018%2C%20current,with%20an%20undergraduate%20college%20degree.)**
 - Demonstrates relationship between education level and smoking and how this has changed from 1966 to 2018
 - Highlights relevant decrease across the board
 - Widening gap between smoking habits in different socioeconomic groups
 
-**6) https://www.ruralminds.org/serving-rural-america?gclid=Cj0KCQjwi46iBhDyARIsAE3nVrYiy5g0vKtTyjymIVEFk1Minw6pVa59F80fprrrqYaZ-rjZvSJNodcaAkU2EALw_wcB**
+**6) [Serving Rural America](https://www.ruralminds.org/serving-rural-america?gclid=Cj0KCQjwi46iBhDyARIsAE3nVrYiy5g0vKtTyjymIVEFk1Minw6pVa59F80fprrrqYaZ-rjZvSJNodcaAkU2EALw_wcB)**
 - Highlights changes in mental health in rural communities over the pandemic which is something we are also interested in looking into for our project
 - Rural communities generally have significantly less access to mental health care but not lower instance of mental health issues
   - This is an important point and discrepancy that exists across America
