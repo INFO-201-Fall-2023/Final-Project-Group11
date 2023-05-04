@@ -17,19 +17,19 @@ Overall, this story is relevant and timely, given the pandemic and the extensive
 - How was the data collected or generated? 
   - The BRFSS is a continuous, state-based surveillance system that collects information about modifiable risk factors for chronic diseases and other leading causes of death. The data for the STATE System were extracted from the annual BRFSS surveys from participating states.
 - How many observations (rows) are in your data?
-  - 31 Rows
+  - 43,341 Rows
 - How many features (columns) are in the data?
-  - 43342 Columns
+  - 31 Columns
 
-### 2) Behavioral Health Services Provided to the Medicaid and CHIP Population
+### 2) Seasonally Adjusted LAUS Estimates
 - Where did you download the data (e.g., a web URL)?
-  - https://catalog.data.gov/dataset/behavioral-health-servicesprovided-to-the-medicaid-and-chip-population-b6f90
+  - https://catalog.data.gov/dataset/seasonally-adjusted-laus-estimates
 - How was the data collected or generated? 
-  - This data set includes monthly counts and rates (per 1,000 beneficiaries) of behavioral health services, including emergency department services, inpatient services, intensive outpatient/partial hospitalizations, outpatient services, or services delivered through telehealth, provided to Medicaid and CHIP beneficiaries, by state.
+  - This data set includes historical resident labor force and employment, seasonally adjusted. Washington State and labor market areas, 1990-2022
 - How many observations (rows) are in your data?
-  - 8 Rows
+  - 5,835 Rows
 - How many features (columns) are in the data?
-  - 25441 Columns
+  - 13 Columns
 
 ## Background Research/Inspiration
 **1) [Do people with mental illness and substance use disorders use tobacco more often?](https://nida.nih.gov/publications/research-reports/tobacco-nicotine-e-cigarettes/do-people-mental-illness-substance-use-disorders-use-tobacco-more-often#:~:text=Rates%20of%20smoking%20among%20people%20with%20mental%20illness,for%20non-Hispanic%20American%20Indian%20or%20Alaska%20Native%20adults.)**
