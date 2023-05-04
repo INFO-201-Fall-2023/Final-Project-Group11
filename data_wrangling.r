@@ -34,8 +34,8 @@ years <- c(2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)
 # Focus the dataset on the specific years that was given
 seasonally_df <- seasonally_df[seasonally_df$Year %in% years, ]
 
-seasonally_df <- subset(seasonally_df, Area.Title %in% 
-"Seattle-Bellevue-Everett, WA Metropolitan Division")
+# Focus the dataset in the Seattle-Bellevue-Everett area
+seasonally_df <- subset(seasonally_df, Area.Title %in% "Seattle-Bellevue-Everett, WA Metropolitan Division")
 
 # Excludes specific columns
 seasonally_df <- select(seasonally_df, -c(Area.Code, Month, Ref_Type, Version))
