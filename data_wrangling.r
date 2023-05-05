@@ -15,16 +15,19 @@ risk_df <- risk_df[!grepl("-", risk_df$YEAR), ]
 # Converts the character to an integer
 risk_df$YEAR <- as.integer(risk_df$YEAR)
 
+# Replace blank and space by NA
+risk_df[risk_df == "" | risk_df == " "] <- NA
+
 # Including and excluding specific rows
 risk_df <- subset(risk_df, Gender %in% "Overall" & Race %in% "All Races" & 
                     !(MeasureDesc == "Quit Attempt in Past Year Among Every Day Cigarette Smokers"))
 
 # Excludes specific columns
-risk_df <- select(risk_df, -c(DisplayOrder, SubMeasureID, StratificationID1, StratificationID2, StratificationID3,
-                              StratificationID4, TopicTypeId, TopicId, MeasureId, Data_Value_Footnote, DataSource,
-                              Data_Value_Footnote_Symbol))
-
-
+risk_df <- select(risk_df, -c(DisplayOrder, SubMeasureID, StratificationID1, 
+                              StratificationID2, StratificationID3, StratificationID4, 
+                              TopicTypeId, TopicId, MeasureId, 
+                              Data_Value_Footnote, DataSource, Data_Value_Footnote_Symbol,
+                              GeoLocation))
 
 # ---- seasonally_df CLEANUP ---- 
 
@@ -34,11 +37,17 @@ years <- c(2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)
 # Focus the dataset on the specific years that was given
 seasonally_df <- seasonally_df[seasonally_df$Year %in% years, ]
 
+# Replace blank and space by NA
+seasonally_df[seasonally_df == "" | seasonally_df == " "] <- NA
+
 # Focus the dataset in the Seattle-Bellevue-Everett area
 seasonally_df <- subset(seasonally_df, Area.Title %in% "Seattle-Bellevue-Everett, WA Metropolitan Division")
 
 # Excludes specific columns
 seasonally_df <- select(seasonally_df, -c(Area.Code, Month, Ref_Type, Version))
+
+
+# ---- MERGING THE TWO DATASETS ---- 
 
 # Merge the two datasets
 df <- merge(risk_df, seasonally_df, by.x = "YEAR", by.y = "Year")
@@ -57,8 +66,7 @@ df <- rename(df, Year = YEAR,
              Low.Confidence.Limit = Low_Confidence_Limit,
              High.Confidence.Limit = High_Confidence_Limit,
              Sample.Size = Sample_Size,
-             Geolocation = GeoLocation,
-             Month = Month_Str,)
+             Month = Month_Str)
 
 # Side-note:
 # The sample size are used throughout the entire year, which is why
