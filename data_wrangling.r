@@ -43,6 +43,23 @@ seasonally_df <- select(seasonally_df, -c(Area.Code, Month, Ref_Type, Version))
 # Merge the two datasets
 df <- merge(risk_df, seasonally_df, by.x = "YEAR", by.y = "Year")
 
+# Renaming columns
+df <- rename(df, Year = YEAR, 
+             State.Abb = LocationAbbr, 
+             State = LocationDesc,
+             Topic.Type = TopicType,
+             Topic.Desc = TopicDesc,
+             Measure.Desc = MeasureDesc,
+             Data.Value.Unit = Data_Value_Unit,
+             Data.Value.Type = Data_Value_Type,
+             Data.Value = Data_Value,
+             Data.Value.Std.Err = Data_Value_Std_Err,
+             Low.Confidence.Limit = Low_Confidence_Limit,
+             High.Confidence.Limit = High_Confidence_Limit,
+             Sample.Size = Sample_Size,
+             Geolocation = GeoLocation,
+             Month = Month_Str,)
+
 # Side-note:
 # The sample size are used throughout the entire year, which is why
 # the number are the same for each month. 
