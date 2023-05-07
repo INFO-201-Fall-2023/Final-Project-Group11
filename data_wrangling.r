@@ -82,7 +82,8 @@ df$Relative.Sample.Size <- ifelse(df$Sample.Size < 1000, "Small",
                                   ifelse(df$Sample.Size < 3000, "Medium", "Large"))
 
 
+# rename the data frame
+behavioral_risk_and_seasonally_adjusted_LAUS_estimates <- df
 
 # summarization data frame
-
 summarise(df)
