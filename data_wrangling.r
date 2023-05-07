@@ -83,3 +83,6 @@ df$Relative.Sample.Size <- ifelse(df$Sample.Size < 1000, "Small",
 
 
 
+# summarization data frame
+
+summarise(df)
