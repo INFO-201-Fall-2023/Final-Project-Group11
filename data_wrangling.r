@@ -2,6 +2,7 @@ library(dplyr)
 library(stringr)
 
 risk_df <- read.csv("Behavioral_Risk_Factor_Data__Tobacco_Use__2011_to_present_.csv")
+# Updated upstream
 seasonally_df <- read.csv("Seasonally_Adjusted_LAUS_Estimates.csv")
 
 # ---- risk_df CLEANUP ----
@@ -15,19 +16,16 @@ risk_df <- risk_df[!grepl("-", risk_df$YEAR), ]
 # Converts the character to an integer
 risk_df$YEAR <- as.integer(risk_df$YEAR)
 
-# Replace blank and space by NA
-risk_df[risk_df == "" | risk_df == " "] <- NA
-
 # Including and excluding specific rows
 risk_df <- subset(risk_df, Gender %in% "Overall" & Race %in% "All Races" & 
                     !(MeasureDesc == "Quit Attempt in Past Year Among Every Day Cigarette Smokers"))
 
 # Excludes specific columns
-risk_df <- select(risk_df, -c(DisplayOrder, SubMeasureID, StratificationID1, 
-                              StratificationID2, StratificationID3, StratificationID4, 
-                              TopicTypeId, TopicId, MeasureId, 
-                              Data_Value_Footnote, DataSource, Data_Value_Footnote_Symbol,
-                              GeoLocation))
+risk_df <- select(risk_df, -c(DisplayOrder, SubMeasureID, StratificationID1, StratificationID2, StratificationID3,
+                              StratificationID4, TopicTypeId, TopicId, MeasureId, Data_Value_Footnote, DataSource,
+                              Data_Value_Footnote_Symbol))
+
+
 
 # ---- seasonally_df CLEANUP ---- 
 
@@ -37,17 +35,11 @@ years <- c(2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019)
 # Focus the dataset on the specific years that was given
 seasonally_df <- seasonally_df[seasonally_df$Year %in% years, ]
 
-# Replace blank and space by NA
-seasonally_df[seasonally_df == "" | seasonally_df == " "] <- NA
-
 # Focus the dataset in the Seattle-Bellevue-Everett area
 seasonally_df <- subset(seasonally_df, Area.Title %in% "Seattle-Bellevue-Everett, WA Metropolitan Division")
 
 # Excludes specific columns
 seasonally_df <- select(seasonally_df, -c(Area.Code, Month, Ref_Type, Version))
-
-
-# ---- MERGING THE TWO DATASETS ---- 
 
 # Merge the two datasets
 df <- merge(risk_df, seasonally_df, by.x = "YEAR", by.y = "Year")
@@ -66,8 +58,28 @@ df <- rename(df, Year = YEAR,
              Low.Confidence.Limit = Low_Confidence_Limit,
              High.Confidence.Limit = High_Confidence_Limit,
              Sample.Size = Sample_Size,
-             Month = Month_Str)
+             Geolocation = GeoLocation,
+             Month = Month_Str,)
 
 # Side-note:
 # The sample size are used throughout the entire year, which is why
 # the number are the same for each month. 
+
+# Assign a unique identifier to each row
+df$id <- row.names(df)
+
+# Employment Rate to check that unemployment rate is accurate
+employment <- function(identification){
+  id_df <- filter(df, id == identification)
+  return(round(id_df$Employment/id_df$Labor.Force*100, 1))
+}
+df <- mutate(df, Employment.Rate = lapply(df$id, employment))
+
+# relative smoking sample size label
+df$Sample.Size <- as.numeric(df$Sample.Size)
+
+df$Relative.Sample.Size <- ifelse(df$Sample.Size < 1000, "Small",
+                                  ifelse(df$Sample.Size < 3000, "Medium", "Large"))
+
+
+
