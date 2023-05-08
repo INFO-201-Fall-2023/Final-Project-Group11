@@ -74,6 +74,7 @@ employment <- function(identification){
   return(round(id_df$Employment/id_df$Labor.Force*100, 1))
 }
 df <- mutate(df, Employment.Rate = lapply(df$id, employment))
+df$Employment.Rate <- as.numeric(df$Employment.Rate)
 
 # relative smoking sample size label
 df$Sample.Size <- as.numeric(df$Sample.Size)
