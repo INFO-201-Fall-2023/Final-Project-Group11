@@ -88,3 +88,13 @@ behavioral_risk_and_seasonally_adjusted_LAUS_estimates <- df
 
 # summarization data frame
 summarise(df)
+
+# write.csv(behavioral_risk_and_seasonally_adjusted_LAUS_estimates, "unifiedData.csv")
+unifiedFile <- read.csv("unifiedData.csv")
+
+# IGNORE THIS:
+# Convert list column to character vector
+# behavioral_risk_and_seasonally_adjusted_LAUS_estimates$Employment.Rate <- sapply(behavioral_risk_and_seasonally_adjusted_LAUS_estimates$Employment.Rate, function(x) paste0(unlist(x), collapse = ", "))
+
+# Write data frame to CSV file
+# write.csv(behavioral_risk_and_seasonally_adjusted_LAUS_estimates, "unifiedData.csv", row.names = FALSE)
