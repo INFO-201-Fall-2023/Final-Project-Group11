@@ -41,4 +41,8 @@ change_over_time_emp <- ggplot(data = mean_value, aes(x = Year, y = avg_employme
   geom_point() +
   labs(y = "Values", x = "Years", color = "Employment Status")
 
+#write.csv(mean_value, "change_over_time.csv", row.names = FALSE)
+
 plot(change_over_time_emp)
+
+test <- read.csv("change_over_time.csv")

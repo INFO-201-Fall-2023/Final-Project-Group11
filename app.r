@@ -2,10 +2,14 @@ library(dplyr)
 library(ggplot2)
 library(stringr)
 library(shiny)
+library(plotly)
 
 # DATA SOURCE INFO (ALSO SHOULD PROBABLY SOURCE(DIFFERENT_VIZ_FILES))
 source("data_wrangling.r")
+source("change_over_time.r")
+
 df <- read.csv("unifiedData.csv")
+change_df <- read.csv("change_over_time.csv")
 
 
 # DEFINE WHATS ON DIFFERENT PAGES
@@ -74,7 +78,9 @@ data_story_pg <- tabPanel("Data Stories",
                                          and leaves the body. While some smokers may feel that smoking helps them relax or cope with stress, 
                                          this effect is likely to be temporary and short-lived. Over time, nicotine dependence can actually 
                                          increase anxiety and stress levels, and many smokers report feeling more stressed and anxious when 
-                                         they are unable to smoke.")),
+                                         they are unable to smoke."),
+                                       plotlyOutput("line_plot")
+                                       ),
                               
                               tabPanel("Education",
                                        h3("Education Level and Tobacco Usage"),
@@ -111,6 +117,20 @@ ui <- navbarPage("Tobacco Use",
 # DEFINE SERVER LOGIC
 server <- function(input, output){
   
+  # Employment (plot)
+  # Change over time (line plot)
+  output$line_plot <- renderPlotly({
+    change_over_time_graph <- ggplot(data = change_df, aes(x = Year, y = avg_employment)) +
+      geom_line(aes(col = EmploymentStatus)) +
+      geom_point(size = 4) +
+      labs(y = "Average Employment/Unemployment Rate", x = "Years", color = "Employment Status")
+    
+    return(change_over_time_graph)
+  })
+  
+  # Education Level and Tobacco Use (plot)
+  
+  # Relative Influences (plot)
 }
 
 
