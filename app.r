@@ -59,10 +59,27 @@ data_story_pg <- tabPanel("Data Stories",
                             tabsetPanel(
                               tabPanel("Employment",
                                        h3("Employment Status and Tobacco Usage"),
-                                       p("maybe a little info/summary at bottom")),
+                                       h4("This visualization will be focused on the status of one's employment and the use of tobacco by two different groups (those who are employed and those who are unemployed).
+                                                This will exclude what educational level and how old the individual is."),
+                                       tags$ul(
+                                         tags$li("It includes all ages and all types of educational levels"),
+                                         tags$li("It includes all types of tobacco use (cigarettes, smokeless tobacco, and e-cigarette"),
+                                         tags$li("Includes years from 2011-2019")
+                                         ),
+                                       p("Over the course of 2011-2019, the cost of living increased, which meant that more people are 
+                                         looking for employment, however, this also meant an increase in unemployment, as people are 
+                                         unable/struggle to afford their living means. This can cause tremendous stress and a possibility 
+                                         to cope with that, is the use of tobacco/smoking, Nicotine, is the addictive substance found in tobacco. 
+                                         The effects of nicotine are often followed by a sense of relaxation and calm as the drug is metabolized 
+                                         and leaves the body. While some smokers may feel that smoking helps them relax or cope with stress, 
+                                         this effect is likely to be temporary and short-lived. Over time, nicotine dependence can actually 
+                                         increase anxiety and stress levels, and many smokers report feeling more stressed and anxious when 
+                                         they are unable to smoke.")),
+                              
                               tabPanel("Education",
                                        h3("Education Level and Tobacco Usage"),
                                        p("maybe a little info/summary at bottom")),
+                              
                               tabPanel("Relative Influences",
                                        h3("Relative Influences on Tobacco Usage"),
                                        p("maybe a little info/summary at bottom/explain why we have this viz on top of the other two"))
