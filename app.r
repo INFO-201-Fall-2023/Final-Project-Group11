@@ -6,11 +6,7 @@ library(plotly)
 
 # DATA SOURCE INFO (ALSO SHOULD PROBABLY SOURCE(DIFFERENT_VIZ_FILES))
 source("data_wrangling.r")
-source("change_over_time.r")
-
 df <- read.csv("unifiedData.csv")
-change_df <- read.csv("change_over_time.csv")
-
 
 # DEFINE WHATS ON DIFFERENT PAGES
 intro_pg <- tabPanel("Background",
@@ -79,8 +75,20 @@ data_story_pg <- tabPanel("Data Stories",
                                          this effect is likely to be temporary and short-lived. Over time, nicotine dependence can actually 
                                          increase anxiety and stress levels, and many smokers report feeling more stressed and anxious when 
                                          they are unable to smoke."),
-                                       plotlyOutput("line_plot")
+                                       sidebarLayout(
+                                         sidebarPanel(
+                                           inputId = "employ_id",
+                                           label = "Filter by average employment per year",
+                                           min = 2011,
+                                           max = 2019,
+                                           value = 2015
+                                         ),
+                                         mainPanel(
+                                           plotlyOutput("line_plot")
+                                         )
                                        ),
+                              ),
+  
                               
                               tabPanel("Education",
                                        h3("Education Level and Tobacco Usage"),
@@ -120,10 +128,18 @@ server <- function(input, output){
   # Employment (plot)
   # Change over time (line plot)
   output$line_plot <- renderPlotly({
+    # avg_df <- filter(change_df, avg_employment <= input$employ_id)
+    
     change_over_time_graph <- ggplot(data = change_df, aes(x = Year, y = avg_employment)) +
       geom_line(aes(col = EmploymentStatus)) +
-      geom_point(size = 4) +
-      labs(y = "Average Employment/Unemployment Rate", x = "Years", color = "Employment Status")
+      geom_point(size = 2) +
+      labs(y = "Average Employment/Unemployment Rate", x = "Years", color = "Employment Status") +
+      scale_color_manual(values = c("#446c63", "#7a9380")) +
+      theme_classic() +
+      theme(
+        axis.title.x = element_text(color = "#446c63", size = 12, face = "bold"),
+        axis.title.y = element_text(color = "#c3b6ad", size = 12, face = "bold")
+      )
     
     return(change_over_time_graph)
   })

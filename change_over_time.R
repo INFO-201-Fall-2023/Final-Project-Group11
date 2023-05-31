@@ -45,4 +45,4 @@ change_over_time_emp <- ggplot(data = mean_value, aes(x = Year, y = avg_employme
 
 plot(change_over_time_emp)
 
-test <- read.csv("change_over_time.csv")
+# change_df <- read.csv("change_over_time.csv")
