@@ -3,6 +3,7 @@ library(ggplot2)
 library(stringr)
 library(shiny)
 library(plotly)
+library(shinythemes)
 
 # DATA SOURCE INFO (ALSO SHOULD PROBABLY SOURCE(DIFFERENT_VIZ_FILES))
 source("data_wrangling.r")
@@ -10,8 +11,10 @@ df <- read.csv("unifiedData.csv")
 
 # DEFINE WHATS ON DIFFERENT PAGES
 intro_pg <- tabPanel("Background",
+                     fluidPage(
+                       img(src = "https://www.dhs.wisconsin.gov/sites/default/files/styles/supersize/public/dam/image/8/10712-tobaccoischanging-webimage-products-header.png?itok=4cpOyoO3"),
                      h1("Tobacco Use in Washington state"),
-                     h2("include background info, goals, pictures maybe, etc"),
+                     h2("Group 11: Elizabeth Williams, Soha Sultana, and Brittney Oeur"),
                      p("The story our group intends to tell is about the relationship between tobacco use, 
                        employment status and/or education level, and mental health. Such as how the use of tobacco/smoking, 
                        the status of someone’s employment and/or education level may have an impact on their mental health."),
@@ -47,8 +50,18 @@ intro_pg <- tabPanel("Background",
                      h2("Datasets that was used:"),
                      tags$ul(
                        tags$li("Behavioral Risk Factor Data: Tobacco Use (2011 to present)"),
+                       tags$a(href = "https://catalog.data.gov/dataset/behavioral-risk-factor-data-tobacco-use-2011-to-present", "View dataset for Behavioral Risk Factor Data"),
                        tags$li("Seasonally Adjusted LAUS Estimates"),
+                       tags$a(href = "https://catalog.data.gov/dataset/seasonally-adjusted-laus-estimates", "View dataset for Seasonally Adjusted LAUS Estimates")
+                     ),
+                     
+                     h2("Background Research/Inspiration:"),
+                     tags$ul(
+                       tags$li(tags$a(href = "https://nida.nih.gov/publications/research-reports/tobacco-nicotine-e-cigarettes/do-people-mental-illness-substance-use-disorders-use-tobacco-more-often#:~:text=Rates%20of%20smoking%20among%20people%20with%20mental%20illness,for%20non-Hispanic%20American%20Indian%20or%20Alaska%20Native%20adults.", "Do people with mental illness and substance use disorders use tobacco more often?")),
+                       tags$li(tags$a(href = "https://mhanational.org/issues/2022/mental-health-america-access-care-data", "Access to Care Data 2022")),
+                       tags$li(tags$a(href = "https://mhanational.org/issues/state-mental-health-america", "The State of Mental Health in America"))
                      )
+                  )
   
 )
   
@@ -77,11 +90,7 @@ data_story_pg <- tabPanel("Data Stories",
                                          they are unable to smoke."),
                                        sidebarLayout(
                                          sidebarPanel(
-                                           inputId = "employ_id",
-                                           label = "Filter by average employment per year",
-                                           min = 2011,
-                                           max = 2019,
-                                           value = 2015
+                                           sliderInput("employ_id", "Filter by average employment per year", min = 2011, max = 2019, value = 2015)
                                          ),
                                          mainPanel(
                                            plotlyOutput("line_plot")
@@ -117,7 +126,10 @@ takeaway_pg <- tabPanel("Takeaways",
 ui <- navbarPage("Tobacco Use",
                  intro_pg,
                  data_story_pg,
-                 takeaway_pg
+                 takeaway_pg,
+                 
+                 # Testing CSS file
+                 # includeCSS("bootstrap.min.css")
 )
 
 
@@ -128,9 +140,9 @@ server <- function(input, output){
   # Employment (plot)
   # Change over time (line plot)
   output$line_plot <- renderPlotly({
-    # avg_df <- filter(change_df, avg_employment <= input$employ_id)
+    filtered_change <- change_df %>% filter(Year <= input$employ_id)
     
-    change_over_time_graph <- ggplot(data = change_df, aes(x = Year, y = avg_employment)) +
+    change_over_time_graph <- ggplot(data = filtered_change, aes(x = Year, y = avg_employment)) +
       geom_line(aes(col = EmploymentStatus)) +
       geom_point(size = 2) +
       labs(y = "Average Employment/Unemployment Rate", x = "Years", color = "Employment Status") +
