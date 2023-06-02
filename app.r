@@ -101,7 +101,20 @@ data_story_pg <- tabPanel("Data Stories",
                               
                               tabPanel("Education",
                                        h3("Education Level and Tobacco Usage"),
-                                       p("maybe a little info/summary at bottom")),
+                                       p("maybe a little info/summary at bottom"),
+                                       sidebarLayout(
+                                         sidebarPanel(
+                                           checkboxGroupInput(inputId = "education_yr", 
+                                                              label = "Select Year(s) of Interest",
+                                                              choices = 2011:2019,
+                                                              selected = 2011:2019)
+                                         ),
+                                         mainPanel(
+                                           plotOutput(outputId = "education_plot")
+                                         )
+                                       )
+                              ),
+                              
                               
                               tabPanel("Relative Influences",
                                        h3("Relative Influences on Tobacco Usage"),
@@ -157,6 +170,30 @@ server <- function(input, output){
   })
   
   # Education Level and Tobacco Use (plot)
+  # Reactive data based on year and then applied to data for graph
+  filt_df <- reactive({
+    filter(df_f, Year %in% input$education_yr)
+  })
+  
+  filt_df_g <- reactive({
+    filtered_df <- filt_df()
+    summ_df <- summarize(group_by(filtered_df, Education, Topic.Desc), 
+                         avg_rate = mean(Data.Value, na.rm = TRUE))
+  })
+  # Make the plot
+  output$education_plot <- renderPlot({
+    ggplot(filt_df_g(), aes(x = Education, y = avg_rate, fill = Topic.Desc)) +
+      geom_bar(stat = "identity") +
+      labs(x = "Education Level", y = "Average Use by Percentage (%)",
+           fill = "Type of Tobacco Use") +
+      scale_fill_manual(values = c("#c3b6ad", "#446c63", "#7a9380")) +
+      theme_classic() +
+      theme(
+        axis.title.x = element_text(size = 16, face = "bold", margin = margin(t = 20)),
+        axis.title.y = element_text(size = 16, face = "bold", margin = margin(r = 20)),
+        legend.title = element_text(size = 16, face = "bold")
+      )
+  })
   
   # Relative Influences (plot)
 }
