@@ -47,7 +47,27 @@ intro_pg <- tabPanel("Background",
                        By exploring the relationship between smoking, employment status, education level, and mental health, we can better 
                        understand the complex interplay between these factors."),
                      
-                     h2("Datasets that was used:"),
+                     h3("Cost of Living"),
+                     p("1. Seattle: Has a high cost of living compared to the national average, it has consistently ranked among the top cities 
+                          in terms of cost of living in the United States during this period (Kplnger). Some factors that contributed to that are 
+                          the rising housing prices, transportation costs, and the overall strong economy of the region contributed to the increase."),
+                     p("2. Bellevue: Has a high cost of living, during 2011-2019, it had a similar trend as Seattle, with a significant increase 
+                          in housing prices and overall expenses."),
+                     p("3. Everett: Generally has a lower living cost than Seattle and Bellevue. However, it’s important to note that the cost of
+                          living in Everett also experienced an upward trend during this period, albeit at a slightly slower pace."),
+                     h3("Tobacco Use"),
+                     p("Washington State has been implementing many measures to reduce tobacco use and promote public health. Some of the initiatives
+                          include increased taxes on tobacco products, restrictions on smoking in public places, and anti-smoking campaigns."),
+                     h3("Employment and Umemployment Rates"),
+                     p("1. Seattle: Had a robust job market during the years 2011-2019, the city experienced significant job growth, primarily driven
+                          by industries such as technology, aerospace, and healthcare. Major companies like Amazon, Microsoft, and Boeing have a strong presence
+                          in the Seattle area. The unemployment rate in Seattle remained relatively low compared to the national average during this period."),
+                     p("2. Bellevue: Also benefited from a strong job market, closely tied to the overall economic conditions of the Seattle metropolitan area.
+                          The city experienced job growth and had a relatively low unemployment rate during the years 2011-2019."),
+                     p("3. Everett: Experienced positive employment conditions. The presence of the aerospace industry, including Boeing’s manufacturing facilities,
+                          contributed to job creation in the region. The unemployment rate in Everett remained relatively low during this period."),
+                     
+                     h3("Datasets that was used:"),
                      tags$ul(
                        tags$li("Behavioral Risk Factor Data: Tobacco Use (2011 to present)"),
                        tags$a(href = "https://catalog.data.gov/dataset/behavioral-risk-factor-data-tobacco-use-2011-to-present", "View dataset for Behavioral Risk Factor Data"),
@@ -55,7 +75,7 @@ intro_pg <- tabPanel("Background",
                        tags$a(href = "https://catalog.data.gov/dataset/seasonally-adjusted-laus-estimates", "View dataset for Seasonally Adjusted LAUS Estimates")
                      ),
                      
-                     h2("Background Research/Inspiration:"),
+                     h3("Background Research/Inspiration:"),
                      tags$ul(
                        tags$li(tags$a(href = "https://nida.nih.gov/publications/research-reports/tobacco-nicotine-e-cigarettes/do-people-mental-illness-substance-use-disorders-use-tobacco-more-often#:~:text=Rates%20of%20smoking%20among%20people%20with%20mental%20illness,for%20non-Hispanic%20American%20Indian%20or%20Alaska%20Native%20adults.", "Do people with mental illness and substance use disorders use tobacco more often?")),
                        tags$li(tags$a(href = "https://mhanational.org/issues/2022/mental-health-america-access-care-data", "Access to Care Data 2022")),
@@ -71,23 +91,19 @@ data_story_pg <- tabPanel("Data Stories",
                             
                             tabsetPanel(
                               tabPanel("Employment",
-                                       h3("Employment Status and Tobacco Usage"),
-                                       h4("This visualization will be focused on the status of one's employment and the use of tobacco by two different groups (those who are employed and those who are unemployed).
-                                                This will exclude what educational level and how old the individual is."),
+                                       h3("Employment Status and Tobacco Usage (Change over Time)"),
+                                       h4("This visualization will be focused on the status of one's employment and the use of tobacco by two 
+                                        different groups (those who are employed and those who are unemployed). This will exclude what educational 
+                                        level and how old the individual is."),
                                        tags$ul(
                                          tags$li("It includes all ages and all types of educational levels"),
                                          tags$li("It includes all types of tobacco use (cigarettes, smokeless tobacco, and e-cigarette"),
                                          tags$li("Includes years from 2011-2019")
                                          ),
-                                       p("Over the course of 2011-2019, the cost of living increased, which meant that more people are 
-                                         looking for employment, however, this also meant an increase in unemployment, as people are 
-                                         unable/struggle to afford their living means. This can cause tremendous stress and a possibility 
-                                         to cope with that, is the use of tobacco/smoking, Nicotine, is the addictive substance found in tobacco. 
-                                         The effects of nicotine are often followed by a sense of relaxation and calm as the drug is metabolized 
-                                         and leaves the body. While some smokers may feel that smoking helps them relax or cope with stress, 
-                                         this effect is likely to be temporary and short-lived. Over time, nicotine dependence can actually 
-                                         increase anxiety and stress levels, and many smokers report feeling more stressed and anxious when 
-                                         they are unable to smoke."),
+                                       
+                                       p("The user will be able to change the years, and see the changes of average employment in Washington state 
+                                         per year, However, users are only limited to 2011 through 2019."),
+                                    
                                        sidebarLayout(
                                          sidebarPanel(
                                            sliderInput("employ_id", "Filter by average employment per year", min = 2011, max = 2019, value = 2015)
@@ -96,9 +112,19 @@ data_story_pg <- tabPanel("Data Stories",
                                            plotlyOutput("line_plot")
                                          )
                                        ),
+                                       
+                                       br(),
+                                       
+                                       sidebarLayout(
+                                         sidebarPanel(
+                                           sliderInput("tobacco_id", "Filter by average tobacco use per year", min = 2011, max = 2019, value = 2015)
+                                         ),
+                                         mainPanel(
+                                           plotlyOutput("line_plot_2")
+                                         )
+                                       ),
                               ),
   
-                              
                               tabPanel("Education",
                                        h3("Education Level and Tobacco Usage"),
                                        p("Examine how education level influences rate of different types of tobacco use in Washington State 
@@ -152,8 +178,15 @@ data_story_pg <- tabPanel("Data Stories",
   
 takeaway_pg <- tabPanel("Takeaways",
                         h2("Reflections"),
-                        h4("Employment"),
-                        p("what did we get from employment?"),
+                        h4("Employment: Change Over Time (2011-2019)"),
+                        p("Based on the change over time graph, we see that over the course of 2011-2019, the cost of living increased, which meant that more people
+                          were looking for employment to sustain their lifestyle or to simply survive. This can cause tremendous stress and a possibility to cope with 
+                          that, is the use of tobacco/smoking, Nicotine, is the addictive substance found in tobacco. The effects of nicotine are often followed by a
+                          sense of relaxation and calm as the drug is metabolized and leaves the body. While some smokers may feel that smoking helps them relax or
+                          cope with stress, this effect is likely to be temporary and short-lived. Over time, nicotine dependence can actually increase anxiety and
+                          stress levels, and many smokers report feeling more stressed and anxious when they are unable to smoke."),
+                        br(),
+                        
                         h4("Education"),
                         p("what did we get from education?"),
                         h4("Overall"),
@@ -184,15 +217,39 @@ server <- function(input, output){
     change_over_time_graph <- ggplot(data = filtered_change, aes(x = Year, y = avg_employment)) +
       geom_line(aes(col = EmploymentStatus)) +
       geom_point(size = 2) +
-      labs(y = "Average Employment/Unemployment Rate", x = "Years", color = "Employment Status") +
+      labs(y = "Avg. Employment/Unemployment Rate", 
+           x = "Years", 
+           color = "Employment Status",
+           title = "Employment/Unemployment rate in WA state (2011-2019)") +
       scale_color_manual(values = c("#446c63", "#7a9380")) +
-      theme_classic() +
       theme(
         axis.title.x = element_text(color = "#446c63", size = 12, face = "bold"),
         axis.title.y = element_text(color = "#c3b6ad", size = 12, face = "bold")
       )
     
     return(change_over_time_graph)
+  })
+  
+  output$line_plot_2 <- renderPlotly({
+    filtered_change_2 <- tobacco_use_df %>% filter(Year <= input$tobacco_id)
+    
+    # Tobacco use graph
+    tobacco_use_graph <- ggplot(data = filtered_change_2, aes(x = Year, y = Data_Value)) +
+      geom_line(aes(col = Topic)) +
+      geom_point() +
+      labs(y = "Percentage Use", 
+           x = "Years", 
+           color = "Types of Tobacco use",
+           title = "Average Use of Tobacco in WA state (2011-2019)") +
+      scale_color_manual(values = c("#446c63", "#7a9380", "#c3b6ad")) +
+      theme(
+        axis.title.x = element_text(color = "#446c63", size = 12, face = "bold"),
+        axis.title.y = element_text(color = "#c3b6ad", size = 12, face = "bold")
+      )
+    
+    # write.csv(df_unique, "tobacco_use.csv", row.names = FALSE)
+    
+    return(tobacco_use_graph)
   })
   
   # Education Level and Tobacco Use (plot)
