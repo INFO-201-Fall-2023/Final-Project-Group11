@@ -101,18 +101,44 @@ data_story_pg <- tabPanel("Data Stories",
                               
                               tabPanel("Education",
                                        h3("Education Level and Tobacco Usage"),
-                                       p("maybe a little info/summary at bottom"),
+                                       p("Examine how education level influences rate of different types of tobacco use in Washington State 
+                                         between the years of 2011 and 2019"),
+                                       tags$ul(
+                                         tags$li("Education level is defined as completing high school (12th grade), not finishing high school, 
+                                                 or obtaining some level of higher education after high school"),
+                                         tags$li("Rates of usage are based on average percentage of people surveyed who use 
+                                                 tobacco on a regular basis in each category"),
+                                         tags$li("Data on Smokeless Tobacco use is only available from the years 2016 - 2017"),
+                                         tags$li("Includes people who fall into these age categories: Age 25 and Older, 18 to 24 Years, 25 to 44 Years,
+                                                 45 to 64 Years, Age 20 and Older, 65 Years and Older")
+                                       ),
                                        sidebarLayout(
                                          sidebarPanel(
                                            checkboxGroupInput(inputId = "education_yr", 
                                                               label = "Select Year(s) of Interest",
-                                                              choices = 2011:2019,
-                                                              selected = 2011:2019)
+                                                              choices = c(2011:2019),
+                                                              selected = 2011:2019,
+                                                              )
                                          ),
                                          mainPanel(
                                            plotOutput(outputId = "education_plot")
                                          )
-                                       )
+                                       ),
+                                       h1(" "),
+                                       p("The data demonstrates that between the years of 2011 and 2019 tobacco use in Washington State was 
+                                         highest among adults that did not complete 12th grade, and lowest in those who only finished high school. "),
+                                       p("Cigarette use reflects the most variance in rates across education levels. Average percentage of those 
+                                         surveyed who do use cigarettes regularly is about 5% higher in those with less than 12th grade and those 
+                                         with more than a 12th grade education. Surprisingly those with just a 12th grade education were consistently 
+                                         about 20% lower than the highest rate. In all education levels, rates of cigarette use dropped by about 5% 
+                                         over the years from 2011 to 2019."),
+                                       p("Rates of smokeless tobacco use were near or under 5% of the surveyed population in all education levels.
+                                         There was little to no change in these rates over the course of the study, but generally rates were slightly 
+                                         highest among those with higher education. "),
+                                       p("E-cigarette use only had data from the years 2016 and 2017 which meant little analysis could be done on their 
+                                         relative rates. They were around 10% for both the education categories under and above 12th grade. Those with 
+                                         only a high school education had slightly lower average percentages in these two years. Overall E-cigarette use 
+                                         was higher than smokeless tobacco but much lower than cigarette use. ")
                               ),
                               
                               

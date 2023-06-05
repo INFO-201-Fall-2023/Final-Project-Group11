@@ -105,3 +105,6 @@ unifiedFile <- read.csv("unifiedData.csv")
 
 # Write data frame to CSV file
 # write.csv(behavioral_risk_and_seasonally_adjusted_LAUS_estimates, "unifiedData.csv", row.names = FALSE)
+
+# For Elizabeth's viz
+df_f <- filter(df, Age != "All Ages", Education != "All Grades" )
