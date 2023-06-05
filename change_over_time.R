@@ -30,11 +30,9 @@ df_combined <- df_combined[, c("Year", "EmploymentStatus", "Topic", "Measure", "
 # Group_by the selected columns:
 selected_employed <- group_by(df_combined, Year, EmploymentStatus)
 
-# Will change this dataframe later
 # Gets the average of number of people who are employed and unemployed
 mean_value <- summarize(selected_employed, avg_employment = mean(combined_employment))
 
-# Will edit more of this later
 # Graph for 'change over time'
 change_over_time_emp <- ggplot(data = mean_value, aes(x = Year, y = avg_employment)) +
   geom_line(aes(col = EmploymentStatus)) +
@@ -44,5 +42,3 @@ change_over_time_emp <- ggplot(data = mean_value, aes(x = Year, y = avg_employme
 #write.csv(mean_value, "change_over_time.csv", row.names = FALSE)
 
 plot(change_over_time_emp)
-
-# change_df <- read.csv("change_over_time.csv")
