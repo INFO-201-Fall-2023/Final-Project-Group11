@@ -13,7 +13,7 @@ df <- read.csv("unifiedData.csv")
 intro_pg <- tabPanel("Background",
                      fluidPage(
                        img(src = "https://www.dhs.wisconsin.gov/sites/default/files/styles/supersize/public/dam/image/8/10712-tobaccoischanging-webimage-products-header.png?itok=4cpOyoO3"),
-                     h1("Tobacco Use in Washington state"),
+                     h1("Tobacco Use in Washington State"),
                      h2("Group 11: Elizabeth Williams, Soha Sultana, and Brittney Oeur"),
                      p("The story our group intends to tell is about the relationship between tobacco use, 
                        employment status and/or education level, and mental health. Such as how the use of tobacco/smoking, 
