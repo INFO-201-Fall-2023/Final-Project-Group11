@@ -11,15 +11,14 @@ df <- read.csv("unifiedData.csv")
 
 # DEFINE WHATS ON DIFFERENT PAGES
 intro_pg <- tabPanel("Background",
-                     fluidPage(
-                       img(src = "https://www.dhs.wisconsin.gov/sites/default/files/styles/supersize/public/dam/image/8/10712-tobaccoischanging-webimage-products-header.png?itok=4cpOyoO3"),
-                     h1("Tobacco Use in Washington State"),
-                     h2("Group 11: Elizabeth Williams, Soha Sultana, and Brittney Oeur"),
-                     p("The story our group intends to tell is about the relationship between tobacco use, 
+                     fluidPage(img(src = "https://www.dhs.wisconsin.gov/sites/default/files/styles/supersize/public/dam/image/8/10712-tobaccoischanging-webimage-products-header.png?itok=4cpOyoO3"),
+                               h1("Tobacco Use in Washington state (Seattle, Bellevue, and Everett)"),
+                               h2("Group 11: Elizabeth Williams, Soha Sultana, and Brittney Oeur"),
+                               p("The story our group intends to tell is about the relationship between tobacco use, 
                        employment status and/or education level, and mental health. Such as how the use of tobacco/smoking, 
                        the status of someone’s employment and/or education level may have an impact on their mental health."),
-                     
-                     p("We believe this an interesting and compelling story because it touches on a topic that affects a large portion of the 
+                               
+                               p("We believe this an interesting and compelling story because it touches on a topic that affects a large portion of the 
                        population. In recent years, the awareness of mental health has risen tremendously, and advocating for people to seek 
                        professional help has been more accepted by mainstream culture. In addition, smoking is a widespread habit that affects
                        the lives of millions of people, and its impact on mental health is often overlooked. By exploring this topic, we can 
@@ -28,8 +27,8 @@ intro_pg <- tabPanel("Background",
                        between smoking and mental health has become even more pertinent. Stress and anxiety levels have been on the rise, which
                        has led people to turn to smoking as a coping mechanism. This can then lead to an increased need for mental health 
                        support, especially for those in lower socioeconomic brackets who may have more limited resources."),
-                     
-                     p("Some of the data we plan to look at includes causes of smoking in young adults, and the rates of this 
+                               
+                               p("Some of the data we plan to look at includes causes of smoking in young adults, and the rates of this 
                        over time and what treatment options have been presented across the country. These pieces of data are important
                        to look at because it can show what issues are causing young adults to engage in these harmful behaviors, 
                        and is it because of the lack of mental health care that is causing this. Analyzing this data can help us understand 
@@ -41,69 +40,92 @@ intro_pg <- tabPanel("Background",
                        are experiencing this problem at unprecedented levels. With this information, it can give lawmakers a general overview 
                        of this issue and make them aware of what solutions are working, by comparing the data from other states and seeing 
                        what solutions have worked and what have not."),
-                     
-                     p("Overall, this story is relevant and timely, given the pandemic and the extensive impact it has had on mental health.
+                               
+                               p("Overall, this story is relevant and timely, given the pandemic and the extensive impact it has had on mental health.
                        It is also a topic that affects a large portion of the population and is therefore of interest to many communities.
                        By exploring the relationship between smoking, employment status, education level, and mental health, we can better 
                        understand the complex interplay between these factors."),
-                     
-                     h3("Cost of Living"),
-                     p("1. Seattle: Has a high cost of living compared to the national average, it has consistently ranked among the top cities 
+                               br(),
+                               h2("Prerequiste information:"),
+                               h3("Cost of Living:"),
+                               tags$ol(
+                                 tags$li(p("Seattle: Has a high cost of living compared to the national average, it has consistently ranked among the top cities 
                           in terms of cost of living in the United States during this period (Kplnger). Some factors that contributed to that are 
-                          the rising housing prices, transportation costs, and the overall strong economy of the region contributed to the increase."),
-                     p("2. Bellevue: Has a high cost of living, during 2011-2019, it had a similar trend as Seattle, with a significant increase 
-                          in housing prices and overall expenses."),
-                     p("3. Everett: Generally has a lower living cost than Seattle and Bellevue. However, it’s important to note that the cost of
-                          living in Everett also experienced an upward trend during this period, albeit at a slightly slower pace."),
-                     h3("Tobacco Use"),
-                     p("Washington State has been implementing many measures to reduce tobacco use and promote public health. Some of the initiatives
-                          include increased taxes on tobacco products, restrictions on smoking in public places, and anti-smoking campaigns."),
-                     h3("Employment and Umemployment Rates"),
-                     p("1. Seattle: Had a robust job market during the years 2011-2019, the city experienced significant job growth, primarily driven
+                          the rising housing prices, transportation costs, and the overall strong economy of the region contributed to the increase.")),
+                                 tags$li(p("Bellevue: Has a high cost of living, during 2011-2019, it had a similar trend as Seattle, with a significant increase 
+                          in housing prices and overall expenses.")),
+                                 tags$li(p("Everett: Generally has a lower living cost than Seattle and Bellevue. However, it’s important to note that the cost of
+                          living in Everett also experienced an upward trend during this period, albeit at a slightly slower pace."))
+                               ),
+                               
+                               h3("Tobacco Use"),
+                               tags$ul(
+                                 tags$li(p("Washington State has been implementing many measures to reduce tobacco use and promote public health. Some of the initiatives
+                          include increased taxes on tobacco products, restrictions on smoking in public places, and anti-smoking campaigns."))
+                               ),
+                               
+                               h3("Employment and Umemployment Rates:"),
+                               tags$ol(
+                                 tags$li(p("Seattle: Had a robust job market during the years 2011-2019, the city experienced significant job growth, primarily driven
                           by industries such as technology, aerospace, and healthcare. Major companies like Amazon, Microsoft, and Boeing have a strong presence
-                          in the Seattle area. The unemployment rate in Seattle remained relatively low compared to the national average during this period."),
-                     p("2. Bellevue: Also benefited from a strong job market, closely tied to the overall economic conditions of the Seattle metropolitan area.
-                          The city experienced job growth and had a relatively low unemployment rate during the years 2011-2019."),
-                     p("3. Everett: Experienced positive employment conditions. The presence of the aerospace industry, including Boeing’s manufacturing facilities,
-                          contributed to job creation in the region. The unemployment rate in Everett remained relatively low during this period."),
-                     
-                     h3("Datasets that was used:"),
-                     tags$ul(
-                       tags$li("Behavioral Risk Factor Data: Tobacco Use (2011 to present)"),
-                       tags$a(href = "https://catalog.data.gov/dataset/behavioral-risk-factor-data-tobacco-use-2011-to-present", "View dataset for Behavioral Risk Factor Data"),
-                       tags$li("Seasonally Adjusted LAUS Estimates"),
-                       tags$a(href = "https://catalog.data.gov/dataset/seasonally-adjusted-laus-estimates", "View dataset for Seasonally Adjusted LAUS Estimates")
-                     ),
-                     
-                     h3("Background Research/Inspiration:"),
-                     tags$ul(
-                       tags$li(tags$a(href = "https://nida.nih.gov/publications/research-reports/tobacco-nicotine-e-cigarettes/do-people-mental-illness-substance-use-disorders-use-tobacco-more-often#:~:text=Rates%20of%20smoking%20among%20people%20with%20mental%20illness,for%20non-Hispanic%20American%20Indian%20or%20Alaska%20Native%20adults.", "Do people with mental illness and substance use disorders use tobacco more often?")),
-                       tags$li(tags$a(href = "https://mhanational.org/issues/2022/mental-health-america-access-care-data", "Access to Care Data 2022")),
-                       tags$li(tags$a(href = "https://mhanational.org/issues/state-mental-health-america", "The State of Mental Health in America"))
+                          in the Seattle area. The unemployment rate in Seattle remained relatively low compared to the national average during this period.")),
+                                 tags$li( p("Bellevue: Also benefited from a strong job market, closely tied to the overall economic conditions of the Seattle metropolitan area.
+                          The city experienced job growth and had a relatively low unemployment rate during the years 2011-2019.")),
+                                 tags$li(p("Everett: Experienced positive employment conditions. The presence of the aerospace industry, including Boeing’s manufacturing facilities,
+                          contributed to job creation in the region. The unemployment rate in Everett remained relatively low during this period."))
+                               ),
+                               
+                               h3("Educational Attainment:"),
+                               tags$ol(
+                                 tags$li(p("Seattle: The city is home to several renowned universities and colleges, including the University of Washington (UW) and Seattle University. 
+                       The city has a highly educated population, with many of the residents holding bachelor’s, master’s, and doctoral degrees. Seattle also has a strong emphasis 
+                       on technology and innovation, attracting highly skilled professionals.")),
+                                 tags$li(p("Bellevue: The city is known for its thriving technology industry (such as Microsoft) and strong educational institutions. Bellevue has a high 
+                       percentage of residents with bachelor’s and advanced degrees, reflecting a well-educated workforce.")),
+                                 tags$li(p("Everett: The city has educational opportunities available within the city and nearby regions. The city is home to Everett Community College, which 
+                                 offers associate degree programs and technical education. Everett is also within proximity to universities and colleges in the Seattle metropolitan,
+                                 allowing residents to pursue higher education."))
+                               ),
+                               br(),
+                               h2("Datasets that was used:"),
+                               tags$ul(
+                                 tags$li("Behavioral Risk Factor Data: Tobacco Use (2011 to present)"),
+                                 tags$a(href = "https://catalog.data.gov/dataset/behavioral-risk-factor-data-tobacco-use-2011-to-present", "View dataset for Behavioral Risk Factor Data"),
+                                 tags$li("Seasonally Adjusted LAUS Estimates"),
+                                 tags$a(href = "https://catalog.data.gov/dataset/seasonally-adjusted-laus-estimates", "View dataset for Seasonally Adjusted LAUS Estimates")
+                               ),
+                               br(),
+                               h2("Background Research/Inspiration:"),
+                               tags$ul(
+                                 tags$li(tags$a(href = "https://nida.nih.gov/publications/research-reports/tobacco-nicotine-e-cigarettes/do-people-mental-illness-substance-use-disorders-use-tobacco-more-often#:~:text=Rates%20of%20smoking%20among%20people%20with%20mental%20illness,for%20non-Hispanic%20American%20Indian%20or%20Alaska%20Native%20adults.", "Do people with mental illness and substance use disorders use tobacco more often?")),
+                                 tags$li(tags$a(href = "https://mhanational.org/issues/2022/mental-health-america-access-care-data", "Access to Care Data 2022")),
+                                 tags$li(tags$a(href = "https://mhanational.org/issues/state-mental-health-america", "The State of Mental Health in America")),
+                                 tags$li(tags$a(href = "https://www.kiplinger.com/real-estate/605051/most-expensive-cities-in-the-us", "Most Expensive Cities in the U.S.")),
+                                 tags$li(tags$a(href = "https://www.bls.gov/eag/eag.wa.htm", "U.S. Bureau of Labor Statistics (Washington)")),
+                                 tags$li(tags$a(href = "https://doh.wa.gov/you-and-your-family/tobacco/prevention", "Washington State Department of Health: Preventing Tobacco Use Among Youth and Young Adults")),
+                                 tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Seattle/Educational-Attainment", "Educational Attainment in Seattle, WA")),
+                                 tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Bellevue/Educational-Attainment", "Educational Attainment in Bellevue, WA")),
+                                 tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Everett/Educational-Attainment", "Educational Attainment in Everett, WA")),
+                                 tags$li(tags$a(href= "https://doh.wa.gov/you-and-your-family/tobacco/laws-and-regulations#:~:text=Engrossed%20House%20Bill%201074%20was,Tobacco%20and%20Vapor%2021%20law.", "Washington State Department of Health: Sale of Tobacco and Vapor Products"))
+                               )
                      )
-                  )
-  
 )
-  
+
 data_story_pg <- tabPanel("Data Stories",
                           fluidPage(
                             titlePanel("Influential Factors"),
                             
                             tabsetPanel(
                               tabPanel("Employment",
-                                       h3("Employment Status and Tobacco Usage (Change over Time)"),
-                                       h4("This visualization will be focused on the status of one's employment and the use of tobacco by two 
-                                        different groups (those who are employed and those who are unemployed). This will exclude what educational 
-                                        level and how old the individual is."),
+                                       h3("Employment Status"),
+                                       p("This visualizations is focused on the average employment and unemployment rate in Washington state, specifically
+                                         in the Seattle, Bellevue, and Everett areas."),
                                        tags$ul(
-                                         tags$li("It includes all ages and all types of educational levels"),
-                                         tags$li("It includes all types of tobacco use (cigarettes, smokeless tobacco, and e-cigarette"),
+                                         tags$li("Includes all ages, all races, and all types of educational levels"),
+                                         tags$li("Includes those who are employed and unemployed (however, they both must be tobacco users)"),
                                          tags$li("Includes years from 2011-2019")
-                                         ),
+                                       ),
                                        
-                                       p("The user will be able to change the years, and see the changes of average employment in Washington state 
-                                         per year, However, users are only limited to 2011 through 2019."),
-                                    
                                        sidebarLayout(
                                          sidebarPanel(
                                            sliderInput("employ_id", "Filter by average employment per year", min = 2011, max = 2019, value = 2015)
@@ -115,6 +137,17 @@ data_story_pg <- tabPanel("Data Stories",
                                        
                                        br(),
                                        
+                                       h3("Tobacco Usage"),
+                                       p("This visualization is focused on the use of tobacco in Washington State, specificially in the Seattle, Bellevue, and 
+                                         Everett areas. (The sample size of those who smokes tobacco, does not equate to the whole population of those cities)."),
+                                       tags$ul(
+                                         tags$li("Includes all ages, all races, and all types of educational levels"),
+                                         tags$li("Includes all types of tobacco use (cigarettes, smokeless tobacco, and e-cigarette"),
+                                         tags$li("Includes years from 2011-2019"),
+                                         tags$li("The use of tobacco is shown in percentage out of the total sample size, it includes those who is currently smoking,
+                                                 has quit or do not smoke.")
+                                       ),
+                                       
                                        sidebarLayout(
                                          sidebarPanel(
                                            sliderInput("tobacco_id", "Filter by average tobacco use per year", min = 2011, max = 2019, value = 2015)
@@ -123,6 +156,27 @@ data_story_pg <- tabPanel("Data Stories",
                                            plotlyOutput("line_plot_2")
                                          )
                                        ),
+                                       
+                                       h3("Employment/Unemployment Rate:"),
+                                       p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the employment rate has steadily been
+                                         increasing and the unemployment rate gradually decreased at a very slow pace. Factors that may have contributed to these rates
+                                         are the growth of the tech/healthcare industries and the tight labor market. Tech companies such as Microsoft and Amazon play a
+                                         significant role in driving employment growth and attracting skilled workers to this region. This expansion has helped created
+                                         job opportunities and contributed to the growth of the labor force. However, due to this, the skills gap posed a challenge for
+                                         employers in Washington state, since employers struggled to find workers with the necessary skills and qualifications for specific
+                                         jobs, particularly in high-demand sectors like technology and healthcare. Workforce development initiatives and partnerships between
+                                         educational institutions and businesses aimed to bridge this gap by providing training and education tailored to industry needs.
+                                         In addition, Washington State experienced a tight labor market in 2019, with low unemployment rates and high demand for skilled
+                                         workers. The strong economy and rapid job growth led to increased competition among employers for qualified candidates. This
+                                         provided job seekers with more opportunities, higher wages, and potentially better job benefits."),
+                                       h3("Tobacco Use:"),
+                                       p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the use of tobacco decreased from 2011 to 2018,
+                                         however, it began to rise again in 2019. Factors that may have contributed to these values are raising the legal smoking age, in
+                                         April 2019, Washington State raised the legal age to purchase tobacco and vapor products from 18 to 21 years old. This change aligned
+                                         with the federal Tobacco 21 law, which is aimed to help reduce youth access to tobacco and vaping products and discourage smoking
+                                         initiation. In addition, tobacco tax increase, in the legislative session of 2019, Washington state lawmakers considered proposals
+                                         to increase taxes on cigarettes and other tobacco products. While the specific tax increase did not pass that year, discussions about
+                                         tobacco taxation aimed to discourage smoking and generate revenue for public health programs."),
                               ),
   
                               tabPanel("Education",
@@ -174,23 +228,24 @@ data_story_pg <- tabPanel("Data Stories",
                               
                               tabPanel("Relative Influences",
                                        h3("Relative Influences on Tobacco Usage"),
+                                       sidebarLayout(
+                                         sidebarPanel(
+                                           selectInput(inputId = "Factors", label = "Click to learn more about the Factor", choices = c("Education Level", "Unemployment Rate", "Labor Force"), selected = NULL),
+                                           br(),
+                                         ),
+                                         mainPanel(
+                                           h3("Looking at the Main Factors of Tobacco Use"),
+                                           plotlyOutput(outputId = "pie_chart")
+                                         ),
+                                       ),
                                        p("This pie chart displays the three main factors of tobacco use: Education Level
                                           (below 12th grade), Unemployment Rate above level 8(indicating a long time since 
-                                          employment, and also the Labor Force, which includes manual and physical labor.")),
-                                        p("These are important factors to discuss, and check to find out which of these factors are
+                                          employment, and also the Labor Force, which includes manual and physical labor."),
+                                       p("These are important factors to discuss, and check to find out which of these factors are
                                           the most recurring among tobacco users, and how it can be mitigated long-term. This data
                                           can help find common trends of tobacco users and other behaviors to find a relationship 
                                            between these potential factors and how they impact tobacco usages"),
-                              sidebarLayout(
-                                sidebarPanel(
-                                  selectInput(inputId = "Factors", label = "Click to learn more about the Factor", choices = c("Education Level", "Unemployment Rate", "Labor Force"), selected = NULL),
-                                  br(),
-                                ),
-                                mainPanel(
-                                  h3("Looking at the Main Factors of Tobacco Use"),
-                                  plotlyOutput(outputId = "pie_chart")
-                                ),
-                              )
+                                       ),
                             )
                           )
   
@@ -217,10 +272,6 @@ takeaway_pg <- tabPanel("Takeaways",
                           Overall, tobacco use did trend down over the course of the survey across all education levels but relative rates remained, which suggests the influence 
                           education has on tobacco use is not likely to change in coming years."),
                         br(),
-                        
-                        h4("Overall"),
-                        p("final takeaway, what do education and employment say together??")
-  
 )
 
 # UI NAVIGATION
