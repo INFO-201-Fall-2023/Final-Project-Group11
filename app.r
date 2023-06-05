@@ -91,19 +91,15 @@ data_story_pg <- tabPanel("Data Stories",
                             
                             tabsetPanel(
                               tabPanel("Employment",
-                                       h3("Employment Status and Tobacco Usage (Change over Time)"),
-                                       h4("This visualization will be focused on the status of one's employment and the use of tobacco by two 
-                                        different groups (those who are employed and those who are unemployed). This will exclude what educational 
-                                        level and how old the individual is."),
+                                       h3("Employment Status and Tobacco Usage"),
+                                       p("This visualizations is focused on the average employment and unemployment rate in Washington state, specifically
+                                         in the Seattle, Bellevue, and Everett areas."),
                                        tags$ul(
-                                         tags$li("It includes all ages and all types of educational levels"),
-                                         tags$li("It includes all types of tobacco use (cigarettes, smokeless tobacco, and e-cigarette"),
+                                         tags$li("Includes all ages, all races, and all types of educational levels"),
+                                         tags$li("Includes those who are employed and unemployed (however, they both must be tobacco users)"),
                                          tags$li("Includes years from 2011-2019")
                                          ),
                                        
-                                       p("The user will be able to change the years, and see the changes of average employment in Washington state 
-                                         per year, However, users are only limited to 2011 through 2019."),
-                                    
                                        sidebarLayout(
                                          sidebarPanel(
                                            sliderInput("employ_id", "Filter by average employment per year", min = 2011, max = 2019, value = 2015)
@@ -115,6 +111,14 @@ data_story_pg <- tabPanel("Data Stories",
                                        
                                        br(),
                                        
+                                       p("This visualization is focused on the use of tobacco in Washington State, specificially in the Seattle, Bellevue, and 
+                                         Everett areas. (The sample size of those who smokes tobacco, does not equate to the whole population of those cities)."),
+                                       tags$ul(
+                                         tags$li("Includes all ages, all races, and all types of educational levels"),
+                                         tags$li("Includes all types of tobacco use (cigarettes, smokeless tobacco, and e-cigarette"),
+                                         tags$li("Includes years from 2011-2019")
+                                       ),
+                                       
                                        sidebarLayout(
                                          sidebarPanel(
                                            sliderInput("tobacco_id", "Filter by average tobacco use per year", min = 2011, max = 2019, value = 2015)
@@ -123,6 +127,13 @@ data_story_pg <- tabPanel("Data Stories",
                                            plotlyOutput("line_plot_2")
                                          )
                                        ),
+                                       
+                                       h3("Employment/Unemployment Rate:"),
+                                       p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the employment rate has increased,
+                                          and theumemployment rate gradually decreased in a very slow pace."),
+                                       h3("Tobacco Use:"),
+                                       p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the use of tobacco has decreased
+                                         from 2011 to 2018, however, it began to rise again in 2019.")
                               ),
   
                               tabPanel("Education",
