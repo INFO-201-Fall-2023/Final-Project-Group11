@@ -127,8 +127,9 @@ data_story_pg <- tabPanel("Data Stories",
   
                               tabPanel("Education",
                                        h3("Education Level and Tobacco Usage"),
-                                       p("Examine how education level influences rate of different types of tobacco use in Washington State 
-                                         between the years of 2011 and 2019"),
+                                       p("Users may select different years between 2011 and 2019 to examine how education level influences 
+                                       rate of different types of tobacco use in Washington State 
+                                         "),
                                        tags$ul(
                                          tags$li("Education level is defined as completing high school (12th grade), not finishing high school, 
                                                  or obtaining some level of higher education after high school"),
@@ -138,7 +139,8 @@ data_story_pg <- tabPanel("Data Stories",
                                          tags$li("Includes people who fall into these age categories: Age 25 and Older, 18 to 24 Years, 25 to 44 Years,
                                                  45 to 64 Years, Age 20 and Older, 65 Years and Older")
                                        ),
-                                       h1(" "),
+                                       br(),
+                                       br(),
                                        sidebarLayout(
                                          sidebarPanel(
                                            checkboxGroupInput(inputId = "education_yr", 
@@ -151,7 +153,8 @@ data_story_pg <- tabPanel("Data Stories",
                                            plotOutput(outputId = "education_plot")
                                          )
                                        ),
-                                       h1(" "),
+                                       br(),
+                                       h4("Summary"),
                                        p("The data demonstrates that between the years of 2011 and 2019 tobacco use in Washington State was 
                                          highest among adults that did not complete 12th grade, and lowest in those who only finished high school. "),
                                        p("Cigarette use reflects the most variance in rates across education levels. Average percentage of those 
@@ -189,9 +192,18 @@ takeaway_pg <- tabPanel("Takeaways",
                         br(),
                         
                         h4("Education"),
-                        p("what did we get from education?"),
+                        p("It was expected that more education would yield lowered use of tobacco, but this was not proven from the data collected in Washington State 
+                          from 2011 to 2019. Though the highest rates of tobacco use were among surveyed participants that had below a 12th grade education, participants 
+                          with higher education were not far behind. This suggests tobacco usage is not a reflection of relative education, and inherent biases about people 
+                          with less education are harmful and not proven by these analyses. It also means campaigns discouraging tobacco use should target all demographics; 
+                          They do not need to be directed toward people with certain levels of education more than others. Stress is a likely contributor to rates of tobacco use, 
+                          and is an evident component in the income analysis; however conclusions about stress and education level cannot me made on the basis of these results. 
+                          Overall, tobacco use did trend down over the course of the survey across all education levels but relative rates remained, which suggests the influence 
+                          education has on tobacco use is not likely to change in coming years."),
+                        br(),
+                        
                         h4("Overall"),
-                        p("final takeaway")
+                        p("final takeaway, what do education and employment say together??")
   
 )
 
