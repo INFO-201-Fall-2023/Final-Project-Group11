@@ -200,7 +200,6 @@ data_story_pg <- tabPanel("Data Stories",
                                        p("maybe a little info/summary at bottom/explain why we have this viz on top of the other two"))
                             )
                           )
-  
 )
   
 takeaway_pg <- tabPanel("Takeaways",
@@ -218,7 +217,6 @@ takeaway_pg <- tabPanel("Takeaways",
                         p("what did we get from education?"),
                         h4("Overall"),
                         p("final takeaway")
-  
 )
 
 # UI NAVIGATION
@@ -235,7 +233,6 @@ ui <- navbarPage("Tobacco Use",
 
 # DEFINE SERVER LOGIC
 server <- function(input, output){
-  
   # Employment (plot)
   # Change over time (line plot)
   output$line_plot <- renderPlotly({
@@ -257,6 +254,8 @@ server <- function(input, output){
     return(change_over_time_graph)
   })
   
+  # Tobacco Use (plot)
+  # Change over time (line plot)
   output$line_plot_2 <- renderPlotly({
     filtered_change_2 <- tobacco_use_df %>% filter(Year <= input$tobacco_id)
     
