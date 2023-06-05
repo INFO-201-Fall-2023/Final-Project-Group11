@@ -174,7 +174,23 @@ data_story_pg <- tabPanel("Data Stories",
                               
                               tabPanel("Relative Influences",
                                        h3("Relative Influences on Tobacco Usage"),
-                                       p("maybe a little info/summary at bottom/explain why we have this viz on top of the other two"))
+                                       p("This pie chart displays the three main factors of tobacco use: Education Level
+                                          (below 12th grade), Unemployment Rate above level 8(indicating a long time since 
+                                          employment, and also the Labor Force, which includes manual and physical labor.")),
+                                        p("These are important factors to discuss, and check to find out which of these factors are
+                                          the most recurring among tobacco users, and how it can be mitigated long-term. This data
+                                          can help find common trends of tobacco users and other behaviors to find a relationship 
+                                           between these potential factors and how they impact tobacco usages"),
+                              sidebarLayout(
+                                sidebarPanel(
+                                  selectInput(inputId = "Factors", label = "Click to learn more about the Factor", choices = c("Education Level", "Unemployment Rate", "Labor Force"), selected = NULL),
+                                  br(),
+                                ),
+                                mainPanel(
+                                  h3("Looking at the Main Factors of Tobacco Use"),
+                                  plotlyOutput(outputId = "pie_chart")
+                                ),
+                              )
                             )
                           )
   
@@ -201,9 +217,6 @@ takeaway_pg <- tabPanel("Takeaways",
                           Overall, tobacco use did trend down over the course of the survey across all education levels but relative rates remained, which suggests the influence 
                           education has on tobacco use is not likely to change in coming years."),
                         br(),
-                        
-                        h4("Overall"),
-                        p("final takeaway, what do education and employment say together??")
   
 )
 
@@ -292,6 +305,28 @@ server <- function(input, output){
   })
   
   # Relative Influences (plot)
+  pie_data <- data.frame(
+    Category = c("Education", "Labor Force", "Unemployment"),
+    Count = c(10, 15, 5)
+  )
+  
+  category_vector  = pie_data$Category
+  
+  # Create the pie chart using ggplot2
+  pie_chart <- ggplot(data = pie_data, aes(x = "", y = category_vector, fill = Category)) +
+    geom_bar(stat = "identity", width = 1) +
+    coord_polar("y", start = 0) +
+    scale_fill_manual(values = c("Education" = "forestgreen", "Labor Force" = "seagreen4", "Unemployment" = "tan")) +
+    theme_void() +
+    labs(title = "Proportion of Current Smoking Users", fill = "Category")
+  
+  output$pie_chart <- renderPlotly({
+    # Convert ggplot to plotly
+    pie_chart <- ggplotly(pie_chart, tooltip = c("text", "percent"))
+    
+    # Return the interactive plotly object
+    pie_chart
+  })
 }
 
 
