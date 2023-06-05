@@ -11,9 +11,8 @@ df <- read.csv("unifiedData.csv")
 
 # DEFINE WHATS ON DIFFERENT PAGES
 intro_pg <- tabPanel("Background",
-                     fluidPage(
-                       img(src = "https://www.dhs.wisconsin.gov/sites/default/files/styles/supersize/public/dam/image/8/10712-tobaccoischanging-webimage-products-header.png?itok=4cpOyoO3"),
-                     h1("Tobacco Use in Washington state"),
+                     fluidPage(img(src = "https://www.dhs.wisconsin.gov/sites/default/files/styles/supersize/public/dam/image/8/10712-tobaccoischanging-webimage-products-header.png?itok=4cpOyoO3"),
+                     h1("Tobacco Use in Washington state (Seattle, Bellevue, and Everett)"),
                      h2("Group 11: Elizabeth Williams, Soha Sultana, and Brittney Oeur"),
                      p("The story our group intends to tell is about the relationship between tobacco use, 
                        employment status and/or education level, and mental health. Such as how the use of tobacco/smoking, 
@@ -47,27 +46,49 @@ intro_pg <- tabPanel("Background",
                        By exploring the relationship between smoking, employment status, education level, and mental health, we can better 
                        understand the complex interplay between these factors."),
                      
-                     h3("Cost of Living"),
-                     p("1. Seattle: Has a high cost of living compared to the national average, it has consistently ranked among the top cities 
-                          in terms of cost of living in the United States during this period (Kplnger). Some factors that contributed to that are 
-                          the rising housing prices, transportation costs, and the overall strong economy of the region contributed to the increase."),
-                     p("2. Bellevue: Has a high cost of living, during 2011-2019, it had a similar trend as Seattle, with a significant increase 
-                          in housing prices and overall expenses."),
-                     p("3. Everett: Generally has a lower living cost than Seattle and Bellevue. However, it’s important to note that the cost of
-                          living in Everett also experienced an upward trend during this period, albeit at a slightly slower pace."),
-                     h3("Tobacco Use"),
-                     p("Washington State has been implementing many measures to reduce tobacco use and promote public health. Some of the initiatives
-                          include increased taxes on tobacco products, restrictions on smoking in public places, and anti-smoking campaigns."),
-                     h3("Employment and Umemployment Rates"),
-                     p("1. Seattle: Had a robust job market during the years 2011-2019, the city experienced significant job growth, primarily driven
-                          by industries such as technology, aerospace, and healthcare. Major companies like Amazon, Microsoft, and Boeing have a strong presence
-                          in the Seattle area. The unemployment rate in Seattle remained relatively low compared to the national average during this period."),
-                     p("2. Bellevue: Also benefited from a strong job market, closely tied to the overall economic conditions of the Seattle metropolitan area.
-                          The city experienced job growth and had a relatively low unemployment rate during the years 2011-2019."),
-                     p("3. Everett: Experienced positive employment conditions. The presence of the aerospace industry, including Boeing’s manufacturing facilities,
-                          contributed to job creation in the region. The unemployment rate in Everett remained relatively low during this period."),
+                     h2("Prerequiste information:"),
                      
-                     h3("Datasets that was used:"),
+                     h3("Cost of Living:"),
+                     tags$ol(
+                       tags$li(p("Seattle: Has a high cost of living compared to the national average, it has consistently ranked among the top cities 
+                          in terms of cost of living in the United States during this period (Kplnger). Some factors that contributed to that are 
+                          the rising housing prices, transportation costs, and the overall strong economy of the region contributed to the increase.")),
+                       tags$li(p("Bellevue: Has a high cost of living, during 2011-2019, it had a similar trend as Seattle, with a significant increase 
+                          in housing prices and overall expenses.")),
+                       tags$li(p("Everett: Generally has a lower living cost than Seattle and Bellevue. However, it’s important to note that the cost of
+                          living in Everett also experienced an upward trend during this period, albeit at a slightly slower pace."))
+                     ),
+                    
+                     h3("Tobacco Use"),
+                     tags$ul(
+                      tags$li(p("Washington State has been implementing many measures to reduce tobacco use and promote public health. Some of the initiatives
+                          include increased taxes on tobacco products, restrictions on smoking in public places, and anti-smoking campaigns."))
+                     ),
+                     
+                     h3("Employment and Umemployment Rates:"),
+                     tags$ol(
+                       tags$li(p("Seattle: Had a robust job market during the years 2011-2019, the city experienced significant job growth, primarily driven
+                          by industries such as technology, aerospace, and healthcare. Major companies like Amazon, Microsoft, and Boeing have a strong presence
+                          in the Seattle area. The unemployment rate in Seattle remained relatively low compared to the national average during this period.")),
+                       tags$li( p("Bellevue: Also benefited from a strong job market, closely tied to the overall economic conditions of the Seattle metropolitan area.
+                          The city experienced job growth and had a relatively low unemployment rate during the years 2011-2019.")),
+                       tags$li(p("Everett: Experienced positive employment conditions. The presence of the aerospace industry, including Boeing’s manufacturing facilities,
+                          contributed to job creation in the region. The unemployment rate in Everett remained relatively low during this period."))
+                     ),
+                     
+                     h3("Educational Attainment:"),
+                     tags$ol(
+                       tags$li(p("Seattle: The city is home to several renowned universities and colleges, including the University of Washington (UW) and Seattle University. 
+                       The city has a highly educated population, with many of the residents holding bachelor’s, master’s, and doctoral degrees. Seattle also has a strong emphasis 
+                       on technology and innovation, attracting highly skilled professionals.")),
+                       tags$li(p("Bellevue: The city is known for its thriving technology industry (such as Microsoft) and strong educational institutions. Bellevue has a high 
+                       percentage of residents with bachelor’s and advanced degrees, reflecting a well-educated workforce.")),
+                       tags$li(p("Everett: The city has educational opportunities available within the city and nearby regions. The city is home to Everett Community College, which 
+                                 offers associate degree programs and technical education. Everett is also within proximity to universities and colleges in the Seattle metropolitan,
+                                 allowing residents to pursue higher education."))
+                     ),
+                     
+                     h2("Datasets that was used:"),
                      tags$ul(
                        tags$li("Behavioral Risk Factor Data: Tobacco Use (2011 to present)"),
                        tags$a(href = "https://catalog.data.gov/dataset/behavioral-risk-factor-data-tobacco-use-2011-to-present", "View dataset for Behavioral Risk Factor Data"),
@@ -75,11 +96,17 @@ intro_pg <- tabPanel("Background",
                        tags$a(href = "https://catalog.data.gov/dataset/seasonally-adjusted-laus-estimates", "View dataset for Seasonally Adjusted LAUS Estimates")
                      ),
                      
-                     h3("Background Research/Inspiration:"),
+                     h2("Background Research/Inspiration:"),
                      tags$ul(
                        tags$li(tags$a(href = "https://nida.nih.gov/publications/research-reports/tobacco-nicotine-e-cigarettes/do-people-mental-illness-substance-use-disorders-use-tobacco-more-often#:~:text=Rates%20of%20smoking%20among%20people%20with%20mental%20illness,for%20non-Hispanic%20American%20Indian%20or%20Alaska%20Native%20adults.", "Do people with mental illness and substance use disorders use tobacco more often?")),
                        tags$li(tags$a(href = "https://mhanational.org/issues/2022/mental-health-america-access-care-data", "Access to Care Data 2022")),
-                       tags$li(tags$a(href = "https://mhanational.org/issues/state-mental-health-america", "The State of Mental Health in America"))
+                       tags$li(tags$a(href = "https://mhanational.org/issues/state-mental-health-america", "The State of Mental Health in America")),
+                       tags$li(tags$a(href = "https://www.kiplinger.com/real-estate/605051/most-expensive-cities-in-the-us", "Most Expensive Cities in the U.S.")),
+                       tags$li(tags$a(href = "https://www.bls.gov/eag/eag.wa.htm", "U.S. Bureau of Labor Statistics (Washington)")),
+                       tags$li(tags$a(href = "https://doh.wa.gov/you-and-your-family/tobacco/prevention", "Washington State Department of Health: Preventing Tobacco Use Among Youth and Young Adults")),
+                       tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Seattle/Educational-Attainment", "Educational Attainment in Seattle, WA")),
+                       tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Bellevue/Educational-Attainment", "Educational Attainment in Bellevue, WA")),
+                       tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Everett/Educational-Attainment", "Educational Attainment in Everett, WA"))
                      )
                   )
   
@@ -91,7 +118,7 @@ data_story_pg <- tabPanel("Data Stories",
                             
                             tabsetPanel(
                               tabPanel("Employment",
-                                       h3("Employment Status and Tobacco Usage"),
+                                       h3("Employment Status"),
                                        p("This visualizations is focused on the average employment and unemployment rate in Washington state, specifically
                                          in the Seattle, Bellevue, and Everett areas."),
                                        tags$ul(
@@ -111,12 +138,15 @@ data_story_pg <- tabPanel("Data Stories",
                                        
                                        br(),
                                        
+                                       h3("Tobacco Usage"),
                                        p("This visualization is focused on the use of tobacco in Washington State, specificially in the Seattle, Bellevue, and 
                                          Everett areas. (The sample size of those who smokes tobacco, does not equate to the whole population of those cities)."),
                                        tags$ul(
                                          tags$li("Includes all ages, all races, and all types of educational levels"),
                                          tags$li("Includes all types of tobacco use (cigarettes, smokeless tobacco, and e-cigarette"),
-                                         tags$li("Includes years from 2011-2019")
+                                         tags$li("Includes years from 2011-2019"),
+                                         tags$li("The use of tobacco is measured in percentage out of the total sample size that wished to join the survey, 
+                                                 this included those has quit or do not smoke.")
                                        ),
                                        
                                        sidebarLayout(
@@ -133,7 +163,13 @@ data_story_pg <- tabPanel("Data Stories",
                                           and theumemployment rate gradually decreased in a very slow pace."),
                                        h3("Tobacco Use:"),
                                        p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the use of tobacco has decreased
-                                         from 2011 to 2018, however, it began to rise again in 2019.")
+                                         from 2011 to 2018, however, it began to rise again in 2019."),
+                                       h3("Correlation:"),
+                                       p("How these two visualizations correlate with each other is that, over the years in Washington state, the population has
+                                         increased and this can increase housing cost, especially in Seattle and Bellevue, they have seen rapid population growth
+                                         and limited housing supply, leading to increased demand and rising home prices and rents. To afford a living can be costly
+                                         and it can be a detriment to ones health, as it can be very stressful to make enough for a living. Which can lead to an
+                                         increase of tobacco use, as it can be used to relieve stress.")
                               ),
   
                               tabPanel("Education",
