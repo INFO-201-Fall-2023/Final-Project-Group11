@@ -138,6 +138,7 @@ data_story_pg <- tabPanel("Data Stories",
                                          tags$li("Includes people who fall into these age categories: Age 25 and Older, 18 to 24 Years, 25 to 44 Years,
                                                  45 to 64 Years, Age 20 and Older, 65 Years and Older")
                                        ),
+                                       h1(" "),
                                        sidebarLayout(
                                          sidebarPanel(
                                            checkboxGroupInput(inputId = "education_yr", 
