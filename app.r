@@ -144,8 +144,8 @@ data_story_pg <- tabPanel("Data Stories",
                                          tags$li("Includes all ages, all races, and all types of educational levels"),
                                          tags$li("Includes all types of tobacco use (cigarettes, smokeless tobacco, and e-cigarette"),
                                          tags$li("Includes years from 2011-2019"),
-                                         tags$li("The use of tobacco is measured in percentage out of the total sample size that wished to join the survey, 
-                                                 this included those has quit or do not smoke.")
+                                         tags$li("The use of tobacco is shown in percentage out of the total sample size, it includes those who is currently smoking,
+                                                 has quit or do not smoke.")
                                        ),
                                        
                                        sidebarLayout(
@@ -194,7 +194,6 @@ data_story_pg <- tabPanel("Data Stories",
                                          )
                                        )
                               ),
-                              
                               
                               tabPanel("Relative Influences",
                                        h3("Relative Influences on Tobacco Usage"),
@@ -274,8 +273,6 @@ server <- function(input, output){
         axis.title.x = element_text(color = "#446c63", size = 12, face = "bold"),
         axis.title.y = element_text(color = "#c3b6ad", size = 12, face = "bold")
       )
-    
-    # write.csv(df_unique, "tobacco_use.csv", row.names = FALSE)
     
     return(tobacco_use_graph)
   })
