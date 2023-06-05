@@ -45,9 +45,8 @@ intro_pg <- tabPanel("Background",
                        It is also a topic that affects a large portion of the population and is therefore of interest to many communities.
                        By exploring the relationship between smoking, employment status, education level, and mental health, we can better 
                        understand the complex interplay between these factors."),
-                     
+                     br(),
                      h2("Prerequiste information:"),
-                     
                      h3("Cost of Living:"),
                      tags$ol(
                        tags$li(p("Seattle: Has a high cost of living compared to the national average, it has consistently ranked among the top cities 
@@ -87,7 +86,7 @@ intro_pg <- tabPanel("Background",
                                  offers associate degree programs and technical education. Everett is also within proximity to universities and colleges in the Seattle metropolitan,
                                  allowing residents to pursue higher education."))
                      ),
-                     
+                     br(),
                      h2("Datasets that was used:"),
                      tags$ul(
                        tags$li("Behavioral Risk Factor Data: Tobacco Use (2011 to present)"),
@@ -95,7 +94,7 @@ intro_pg <- tabPanel("Background",
                        tags$li("Seasonally Adjusted LAUS Estimates"),
                        tags$a(href = "https://catalog.data.gov/dataset/seasonally-adjusted-laus-estimates", "View dataset for Seasonally Adjusted LAUS Estimates")
                      ),
-                     
+                     br(),
                      h2("Background Research/Inspiration:"),
                      tags$ul(
                        tags$li(tags$a(href = "https://nida.nih.gov/publications/research-reports/tobacco-nicotine-e-cigarettes/do-people-mental-illness-substance-use-disorders-use-tobacco-more-often#:~:text=Rates%20of%20smoking%20among%20people%20with%20mental%20illness,for%20non-Hispanic%20American%20Indian%20or%20Alaska%20Native%20adults.", "Do people with mental illness and substance use disorders use tobacco more often?")),
@@ -106,10 +105,10 @@ intro_pg <- tabPanel("Background",
                        tags$li(tags$a(href = "https://doh.wa.gov/you-and-your-family/tobacco/prevention", "Washington State Department of Health: Preventing Tobacco Use Among Youth and Young Adults")),
                        tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Seattle/Educational-Attainment", "Educational Attainment in Seattle, WA")),
                        tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Bellevue/Educational-Attainment", "Educational Attainment in Bellevue, WA")),
-                       tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Everett/Educational-Attainment", "Educational Attainment in Everett, WA"))
+                       tags$li(tags$a(href = "https://statisticalatlas.com/place/Washington/Everett/Educational-Attainment", "Educational Attainment in Everett, WA")),
+                       tags$li(tags$a(href= "https://doh.wa.gov/you-and-your-family/tobacco/laws-and-regulations#:~:text=Engrossed%20House%20Bill%201074%20was,Tobacco%20and%20Vapor%2021%20law.", "Washington State Department of Health: Sale of Tobacco and Vapor Products"))
                      )
                   )
-  
 )
   
 data_story_pg <- tabPanel("Data Stories",
@@ -159,17 +158,25 @@ data_story_pg <- tabPanel("Data Stories",
                                        ),
                                        
                                        h3("Employment/Unemployment Rate:"),
-                                       p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the employment rate has increased,
-                                          and theumemployment rate gradually decreased in a very slow pace."),
+                                       p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the employment rate has steadily been
+                                         increasing and the unemployment rate gradually decreased at a very slow pace. Factors that may have contributed to these rates
+                                         are the growth of the tech/healthcare industries and the tight labor market. Tech companies such as Microsoft and Amazon play a
+                                         significant role in driving employment growth and attracting skilled workers to this region. This expansion has helped created
+                                         job opportunities and contributed to the growth of the labor force. However, due to this, the skills gap posed a challenge for
+                                         employers in Washington state, since employers struggled to find workers with the necessary skills and qualifications for specific
+                                         jobs, particularly in high-demand sectors like technology and healthcare. Workforce development initiatives and partnerships between
+                                         educational institutions and businesses aimed to bridge this gap by providing training and education tailored to industry needs.
+                                         In addition, Washington State experienced a tight labor market in 2019, with low unemployment rates and high demand for skilled
+                                         workers. The strong economy and rapid job growth led to increased competition among employers for qualified candidates. This
+                                         provided job seekers with more opportunities, higher wages, and potentially better job benefits."),
                                        h3("Tobacco Use:"),
-                                       p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the use of tobacco has decreased
-                                         from 2011 to 2018, however, it began to rise again in 2019."),
-                                       h3("Correlation:"),
-                                       p("How these two visualizations correlate with each other is that, over the years in Washington state, the population has
-                                         increased and this can increase housing cost, especially in Seattle and Bellevue, they have seen rapid population growth
-                                         and limited housing supply, leading to increased demand and rising home prices and rents. To afford a living can be costly
-                                         and it can be a detriment to ones health, as it can be very stressful to make enough for a living. Which can lead to an
-                                         increase of tobacco use, as it can be used to relieve stress.")
+                                       p("The data demonstrates that between the years of 2011 and 2019 in Washington state, the use of tobacco decreased from 2011 to 2018,
+                                         however, it began to rise again in 2019. Factors that may have contributed to these values are raising the legal smoking age, in
+                                         April 2019, Washington State raised the legal age to purchase tobacco and vapor products from 18 to 21 years old. This change aligned
+                                         with the federal Tobacco 21 law, which is aimed to help reduce youth access to tobacco and vaping products and discourage smoking
+                                         initiation. In addition, tobacco tax increase, in the legislative session of 2019, Washington state lawmakers considered proposals
+                                         to increase taxes on cigarettes and other tobacco products. While the specific tax increase did not pass that year, discussions about
+                                         tobacco taxation aimed to discourage smoking and generate revenue for public health programs."),
                               ),
   
                               tabPanel("Education",
@@ -198,15 +205,15 @@ data_story_pg <- tabPanel("Data Stories",
 )
   
 takeaway_pg <- tabPanel("Takeaways",
+                        img(src = "https://media.istockphoto.com/id/1097080728/vector/group-of-cartoon-young-people-talking-isolated-on-white-background-vector-illustration.jpg?s=612x612&w=0&k=20&c=NPxKFZd3yFGFwJncaXbpJ72ob0bsR5-1WlN2NeyNrIk=", width = "600px"),
                         h2("Reflections"),
-                        h4("Employment: Change Over Time (2011-2019)"),
+                        h4("Employment"),
                         p("Based on the change over time graph, we see that over the course of 2011-2019, the cost of living increased, which meant that more people
                           were looking for employment to sustain their lifestyle or to simply survive. This can cause tremendous stress and a possibility to cope with 
                           that, is the use of tobacco/smoking, Nicotine, is the addictive substance found in tobacco. The effects of nicotine are often followed by a
                           sense of relaxation and calm as the drug is metabolized and leaves the body. While some smokers may feel that smoking helps them relax or
                           cope with stress, this effect is likely to be temporary and short-lived. Over time, nicotine dependence can actually increase anxiety and
                           stress levels, and many smokers report feeling more stressed and anxious when they are unable to smoke."),
-                        br(),
                         
                         h4("Education"),
                         p("what did we get from education?"),
@@ -261,7 +268,7 @@ server <- function(input, output){
       labs(y = "Percentage Use", 
            x = "Years", 
            color = "Types of Tobacco use",
-           title = "Average Use of Tobacco in WA state (2011-2019)") +
+           title = "Average Tobacco use in WA state (2011-2019)") +
       scale_color_manual(values = c("#446c63", "#7a9380", "#c3b6ad")) +
       theme(
         axis.title.x = element_text(color = "#446c63", size = 12, face = "bold"),
