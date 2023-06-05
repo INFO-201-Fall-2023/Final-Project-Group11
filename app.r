@@ -247,7 +247,7 @@ server <- function(input, output){
       labs(y = "Avg. Employment/Unemployment Rate", 
            x = "Years", 
            color = "Employment Status",
-           title = "Employment/Unemployment rate in WA state (2011-2019)") +
+           title = "Employment/Unemployment Rate in WA State (2011-2019)") +
       scale_color_manual(values = c("#446c63", "#7a9380")) +
       theme(
         axis.title.x = element_text(color = "#446c63", size = 12, face = "bold"),
@@ -267,7 +267,7 @@ server <- function(input, output){
       labs(y = "Percentage Use", 
            x = "Years", 
            color = "Types of Tobacco use",
-           title = "Average Tobacco use in WA state (2011-2019)") +
+           title = "Average Tobacco Use in WA State (2011-2019)") +
       scale_color_manual(values = c("#446c63", "#7a9380", "#c3b6ad")) +
       theme(
         axis.title.x = element_text(color = "#446c63", size = 12, face = "bold"),
